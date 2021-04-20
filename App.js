@@ -1,15 +1,22 @@
 import React from 'react';
-import { View, Text, SafeAreaView, Platform, StatusBar, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Platform,
+  StatusBar,
+  StyleSheet,
+} from 'react-native';
+import { Searchbar } from 'react-native-paper';
 
 const isAndroid = Platform.OS === 'android';
 
 const App = () => {
   return (
     <>
-      <SafeAreaView
-        style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.search}>
-          <Text>Search</Text>
+          <Searchbar placeholder="Search" />
         </View>
         <View style={styles.list}>
           <Text>list</Text>
@@ -26,13 +33,12 @@ const styles = StyleSheet.create({
   },
   search: {
     padding: 16,
-    backgroundColor: 'green'
+    backgroundColor: 'green',
   },
   list: {
     flex: 1,
     padding: 16,
-    backgroundColor: 'blue'
-  }
-})
+    backgroundColor: 'blue',
+  },
+});
 export default App;
-
