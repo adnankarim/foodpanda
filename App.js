@@ -4,13 +4,17 @@ import {
   Platform,
   StatusBar,
 } from 'react-native';
-import { RestaurantsScreen } from './src/components/features/restaurants/screens/restaurants.screen'
+import { RestaurantsScreen } from './src/features/restaurants/screens/restaurants.screen';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './src/infrastructure/theme';
 const isAndroid = Platform.OS === 'android';
 
 const App = () => {
   return (
     <>
-      <RestaurantsScreen />
+      <ThemeProvider theme={theme}>
+        <RestaurantsScreen />
+      </ThemeProvider>
       <StatusBar StatusBarStyle="default" />
     </>
   );

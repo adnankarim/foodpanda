@@ -7,18 +7,18 @@ import styled from 'styled-components/native'
 
 const SafeAreaContainer = styled.SafeAreaView`
  flex: 1;
- margin-top:0px;
+ margin-top:${(props) => props.theme.space[0]};
 
 `;
 const SearchContainer = styled(View)`
-padding: 16px;
-background-color: green;
+padding: ${(props) => props.theme.space[3]};
+background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 
 const RestaurantsListContainer = styled(View)`
 flex: 1;
-padding: 16px;
-background-color: blue;
+padding: ${(props) => props.theme.space[3]};
+background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 export const RestaurantsScreen = () => {
     return (
