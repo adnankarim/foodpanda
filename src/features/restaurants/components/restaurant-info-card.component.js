@@ -3,8 +3,20 @@ import star from '../../../../assets/star';
 import open from '../../../../assets/open';
 import { Spacer } from '../../../components/spacer/spacer.component';
 import { Text } from '../../../components/typography/text.component';
-import { RestaurantCard, Icon, Address, CardCover, CardTitle, Open, Rating, FontContainer, StatusContainer, RestaurantCardContent } from './restaurant-info-card.styles';
 import { SvgXml } from 'react-native-svg';
+
+import {
+    RestaurantCard,
+    Icon,
+    Address,
+    CardCover,
+    CardTitle,
+    Open,
+    Rating,
+    FontContainer,
+    StatusContainer,
+    RestaurantCardContent
+} from './restaurant-info-card.styles';
 
 
 
@@ -35,7 +47,7 @@ export const RestaurantsInfo = ({ restaurant = {} }) => {
                         </Rating>
                         <StatusContainer>
                             {isClosedTemporarily && (
-                                <Text variant="error">
+                                <Text variant="error" style={{ alignItems: 'center', justifyContent: 'center' }}>
                                     CLOSED TEMPORARILY
                                 </Text>
                             )}
