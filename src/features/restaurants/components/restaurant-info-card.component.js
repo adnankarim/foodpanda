@@ -1,38 +1,55 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Card, Title, Paragraph } from 'react-native-paper';
-import styled from 'styled-components';
+import star from '../../../../assets/star';
+import open from '../../../../assets/open';
+import { Spacer } from '../../../components/spacer/spacer.component';
+import { Text } from '../../../components/typography/text.component';
+import { RestaurantCard, Icon, Address, CardCover, CardTitle, Open, Rating, FontContainer, StatusContainer, RestaurantCardContent } from './restaurant-info-card.styles';
+import { SvgXml } from 'react-native-svg';
 
-const CardCover = styled(Card.Cover)`
-padding:${props => props.theme.space[2]}
-`;
-const CardTitle = styled(Title)`
-font-family:${(props) => props.theme.fonts.heading};
-font-weight:${(props) => props.theme.fontWeights.regular};
-font-size:${props => props.theme.sizes[1]}
-margin-top:${(props) => props.theme.space[5]};
-`;
+
+
+
+
 
 export const RestaurantsInfo = ({ restaurant = {} }) => {
+
     const {
         name = 'Paitpooja',
-        icon,
+        icon = 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',
         photos = ['https://mcdonalds.com.pk/wp-content/uploads/nutirition-main-imgWOText.jpg'],
         address = '3567  Walnut Street',
         isOpenNow = true,
         rating = 4,
-        isClosedTemporarily } = restaurant;
-
+        isClosedTemporarily = true, } = restaurant;
+    const ratingArray = Array.from(new Array(rating));
 
     return (
         <>
-            <Card>
+            <RestaurantCard >
                 <CardCover source={{ uri: photos[0] }} />
-                <Card.Content>
+                <RestaurantCardContent>
                     <CardTitle>{name}</CardTitle>
-                </Card.Content>
-            </Card>
+                    <FontContainer>
+                        <Rating>
+                            {ratingArray.map((x, i) => <SvgXml key={i} xml={star} width={20} height={20} />)}
+                        </Rating>
+                        <StatusContainer>
+                            {isClosedTemporarily && (
+                                <Text variant="error">
+                                    CLOSED TEMPORARILY
+                                </Text>
+                            )}
+                            {isOpenNow && <Open xml={open} width={20} height={20} />}
+                            <Spacer position="left" size="large">
+                                <Icon source={{ uri: icon }} />
+                            </Spacer>
+                        </StatusContainer>
+                    </FontContainer>
+                    <Address>{address}</Address>
+                </RestaurantCardContent>
+            </RestaurantCard>
         </>
     );
 }
+
 

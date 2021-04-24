@@ -21,6 +21,7 @@ padding: ${(props) => props.theme.space[3]};
 background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 export const RestaurantsScreen = () => {
+
     return (
         <SafeAreaContainer>
             <SearchContainer>
