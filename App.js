@@ -11,6 +11,8 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './src/infrastructure/theme';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { RestaurantsRequest } from './src/services/restaurants/restaurants.service';
+
 
 const Tab = createBottomTabNavigator();
 
