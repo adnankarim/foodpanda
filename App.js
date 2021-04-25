@@ -10,6 +10,7 @@ import { RestaurantsScreen } from './src/features/restaurants/screens/restaurant
 import { ThemeProvider } from 'styled-components';
 import { theme } from './src/infrastructure/theme';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab = createBottomTabNavigator();
 
@@ -27,10 +28,40 @@ const App = () => {
     <>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
-          <Tab.Navigator>
-            <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
-            <Tab.Screen name="Maps" component={MapScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
+          <Tab.Navigator
+            tabBarOptions={{
+              activeTintColor: 'tomato',
+              inactiveTintColor: 'gray',
+
+            }}
+          >
+            <Tab.Screen
+              name="Restaurants"
+              component={RestaurantsScreen}
+              options={{
+                tabBarLabel: 'Restaurants',
+                tabBarIcon: ({ color, size }) => (
+                  <MaterialCommunityIcons name="silverware-fork-knife" color={color} size={size} />
+                ),
+              }} />
+            <Tab.Screen
+              name="Maps"
+              component={MapScreen}
+              options={{
+                tabBarLabel: 'Maps',
+                tabBarIcon: ({ color, size }) => (
+                  <MaterialCommunityIcons name="map" color={color} size={size} />
+                ),
+              }} />
+            <Tab.Screen
+              name="Settings"
+              component={SettingsScreen}
+              options={{
+                tabBarLabel: 'Settings',
+                tabBarIcon: ({ color, size }) => (
+                  <MaterialCommunityIcons name="cog" color={color} size={size} />
+                ),
+              }} />
           </Tab.Navigator>
         </NavigationContainer>
       </ThemeProvider>
