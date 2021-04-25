@@ -22,7 +22,7 @@ background-color: ${(props) => props.theme.colors.bg.primary};
 
 const CardItem = () => {
     return (
-        <ListItemContainer>
+        <ListItemContainer >
             <RestaurantsInfo />
         </ListItemContainer>
     );
@@ -35,9 +35,9 @@ export const RestaurantsScreen = () => {
                 <Searchbar placeholder="Search" />
             </SearchContainer>
             <FlatList
-                data={[{}, {}]}
+                data={[{ name: 1 }, { name: 2 }, { name: 3 }, { name: 4 }]}
                 renderItem={CardItem}
-                keyExtractor={(item, index) => index.toString()}
+                keyExtractor={(item) => item.name.toString()}
             />
         </SafeAreaContainer>
     );
