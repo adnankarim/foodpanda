@@ -13,7 +13,7 @@ const restaurantsTransform = ({ results = [] }) => {
 
     return camelize(mappedResults);
 };
-export const RestaurantsRequest = (location = "51.219448,4.402464") => {
+export const restaurantsRequest = (location = "51.219448,4.402464") => {
 
 
     return new Promise((resolve, reject) => {
@@ -27,6 +27,3 @@ export const RestaurantsRequest = (location = "51.219448,4.402464") => {
     })
 }
 
-RestaurantsRequest().then(RestaurantsTransform).then((res) => {
-    console.log(res)
-})

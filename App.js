@@ -12,6 +12,7 @@ import { theme } from './src/infrastructure/theme';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { RestaurantsRequest } from './src/services/restaurants/restaurants.service';
+import { RestaurantsContextProvider } from './src/services/restaurants/restaurants.context';
 
 
 const Tab = createBottomTabNavigator();
@@ -29,43 +30,45 @@ const App = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
-          <Tab.Navigator
-            tabBarOptions={{
-              activeTintColor: 'tomato',
-              inactiveTintColor: 'gray',
+        <RestaurantsContextProvider>
+          <NavigationContainer>
+            <Tab.Navigator
+              tabBarOptions={{
+                activeTintColor: 'tomato',
+                inactiveTintColor: 'gray',
 
-            }}
-          >
-            <Tab.Screen
-              name="Restaurants"
-              component={RestaurantsScreen}
-              options={{
-                tabBarLabel: 'Restaurants',
-                tabBarIcon: ({ color, size }) => (
-                  <MaterialCommunityIcons name="silverware-fork-knife" color={color} size={size} />
-                ),
-              }} />
-            <Tab.Screen
-              name="Maps"
-              component={MapScreen}
-              options={{
-                tabBarLabel: 'Maps',
-                tabBarIcon: ({ color, size }) => (
-                  <MaterialCommunityIcons name="map" color={color} size={size} />
-                ),
-              }} />
-            <Tab.Screen
-              name="Settings"
-              component={SettingsScreen}
-              options={{
-                tabBarLabel: 'Settings',
-                tabBarIcon: ({ color, size }) => (
-                  <MaterialCommunityIcons name="cog" color={color} size={size} />
-                ),
-              }} />
-          </Tab.Navigator>
-        </NavigationContainer>
+              }}
+            >
+              <Tab.Screen
+                name="Restaurants"
+                component={RestaurantsScreen}
+                options={{
+                  tabBarLabel: 'Restaurants',
+                  tabBarIcon: ({ color, size }) => (
+                    <MaterialCommunityIcons name="silverware-fork-knife" color={color} size={size} />
+                  ),
+                }} />
+              <Tab.Screen
+                name="Maps"
+                component={MapScreen}
+                options={{
+                  tabBarLabel: 'Maps',
+                  tabBarIcon: ({ color, size }) => (
+                    <MaterialCommunityIcons name="map" color={color} size={size} />
+                  ),
+                }} />
+              <Tab.Screen
+                name="Settings"
+                component={SettingsScreen}
+                options={{
+                  tabBarLabel: 'Settings',
+                  tabBarIcon: ({ color, size }) => (
+                    <MaterialCommunityIcons name="cog" color={color} size={size} />
+                  ),
+                }} />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </RestaurantsContextProvider>
       </ThemeProvider>
       <StatusBar StatusBarStyle="default" />
     </>
