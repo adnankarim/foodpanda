@@ -12,13 +12,11 @@ const SafeAreaContainer = styled.SafeAreaView`
 `;
 const ListItemContainer = styled.View`
  padding: ${(props) => props.theme.space[3]};
- background-color: ${(props) => props.theme.colors.bg.primary} ;
 
 `;
 
 const SearchContainer = styled(View)`
 padding: ${(props) => props.theme.space[3]};
-background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 
 

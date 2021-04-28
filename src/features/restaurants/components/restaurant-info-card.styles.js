@@ -17,7 +17,9 @@ export const RestaurantCardContent = styled(Card.Content)`
 `;
 
 export const CardCover = styled(Card.Cover)`
-    padding:${props => props.theme.space[2]}
+    padding:${props => props.theme.space[2]};
+    background-color: ${(props) => props.theme.colors.bg.primary};
+
 `;
 
 export const CardTitle = styled(Title)`
