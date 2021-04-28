@@ -24,17 +24,15 @@ import {
 
 
 export const RestaurantsInfo = ({ restaurant = {} }) => {
-
     const {
         name = 'Paitpooja',
         icon = 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',
-        photos = ['https://mcdonalds.com.pk/wp-content/uploads/nutirition-main-imgWOText.jpg'],
+        photos = [],
         address = '3567  Walnut Street',
         isOpenNow = true,
         rating = 4,
-        isClosedTemporarily = true, } = restaurant;
-    const ratingArray = Array.from(new Array(rating));
-
+        isClosedTemporarily = true } = restaurant;
+    const ratingArray = Array.from(new Array((Math.round(rating))))
     return (
         <>
             <RestaurantCard >

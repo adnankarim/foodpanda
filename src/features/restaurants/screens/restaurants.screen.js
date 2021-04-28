@@ -21,23 +21,23 @@ padding: ${(props) => props.theme.space[3]};
 background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 
-const CardItem = () => {
-    return (
-        <ListItemContainer >
-            <RestaurantsInfo />
-        </ListItemContainer>
-    );
-};
+
 export const RestaurantsScreen = () => {
-    const restaurantContext = useContext(RestaurantsContext);
+    const { restaurants, isLoading, error } = useContext(RestaurantsContext);
     return (
         <SafeAreaContainer>
             <SearchContainer>
                 <Searchbar placeholder="Search" />
             </SearchContainer>
             <FlatList
-                data={restaurantContext['restaurants']}
-                renderItem={CardItem}
+                data={restaurants}
+                renderItem={({ item }) =>
+                (
+                    <ListItemContainer >
+                        <RestaurantsInfo restaurant={item} />
+                    </ListItemContainer>
+                )
+                }
                 keyExtractor={(item, index) => index}
             />
         </SafeAreaContainer>
