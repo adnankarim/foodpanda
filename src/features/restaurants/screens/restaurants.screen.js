@@ -4,6 +4,7 @@ import { Searchbar } from 'react-native-paper';
 import { RestaurantsInfo } from '../components/restaurant-info-card.component'
 import styled from 'styled-components/native';
 import { RestaurantsContext } from '../../../services/restaurants/restaurants.context';
+import { LocationContext } from '../../../services/location/location.context';
 import { ActivityIndicator, Colors } from "react-native-paper";
 
 const SafeAreaContainer = styled.SafeAreaView`
@@ -30,6 +31,8 @@ const LoadingContainer = styled.View`
 
 export const RestaurantsScreen = () => {
     const { restaurants, isLoading, error } = useContext(RestaurantsContext);
+    const loc = useContext(LocationContext);
+    console.log(loc);
     return (
         <SafeAreaContainer>
             {isLoading && (
