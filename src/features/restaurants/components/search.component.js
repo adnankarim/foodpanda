@@ -14,12 +14,12 @@ padding: ${(props) => props.theme.space[3]};
 export const Search = () => {
     const { keyword, search } = useContext(LocationContext);
     const [searchKeyword, setSearchKeyword] = useState();
-    console.log(searchKeyword);
     return (
         <SearchContainer>
             <Searchbar
                 placeholder="Search for a location"
                 onSubmitEditing={() => {
+                    console.log(searchKeyword, keyword)
                     search(searchKeyword);
                 }}
                 onChangeText={(text) => {
